@@ -5,7 +5,6 @@ import java.io.*;
     Future Implementation
 
     1.A before_ele function that deletes the element that is one position before the given element in the list.
-    2.A curr_ele function that deletes the current element itself.
 */
 
 /**
@@ -111,6 +110,25 @@ class Array {
             dellast();
         } else {
             delpos(temp);
+        }
+    }
+    /**
+     * Deletes the current element or given element.
+     *
+     * @param ele The element to delete .
+     */
+    public void curr_ele(int ele){
+        int i;
+        for (i = 0; i < this.size; i++) {
+            if (this.arr[i] == ele) {
+                break;
+            }
+        }
+        if (i == this.size) {
+            // dellast();
+            System.out.println("element not found");
+        } else {
+            delpos(i);
         }
     }
 }
