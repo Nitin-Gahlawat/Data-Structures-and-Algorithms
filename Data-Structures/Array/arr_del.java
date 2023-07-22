@@ -1,12 +1,3 @@
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-/*
-    Future Implementation
-
-    1.A before_ele function that deletes the element that is one position before the given element in the list.
-*/
-
 /**
  * This class represents an array of integers.
  */
@@ -107,17 +98,38 @@ class Array {
             }
         }
         if (temp == -1) {
-            dellast();
+            System.out.println("The element is not present in the array");
         } else {
             delpos(temp);
         }
     }
+
+    /**
+     * Deletes the element before the specified element.
+     *
+     * @param ele The element to delete before .
+     */
+    public void before_ele(int ele) {
+        int temp = -1;
+        for (int i = 0; i < this.size; i++) {
+            if (this.arr[i] == ele) {
+                temp = i - 1;
+                break;
+            }
+        }
+        if (temp == -1) {
+            System.out.println("The element is present at the first location or not present");
+        }
+        else
+            delpos(temp);
+    }
+
     /**
      * Deletes the current element or given element.
      *
      * @param ele The element to delete .
      */
-    public void curr_ele(int ele){
+    public void curr_ele(int ele) {
         int i;
         for (i = 0; i < this.size; i++) {
             if (this.arr[i] == ele) {
@@ -132,15 +144,16 @@ class Array {
         }
     }
 }
+
 /**
-* The main method class.
-*/
+ * The main method class.
+ */
 class arr_del {
     /**
-    * The main method.
-    *
-    * @param args The command-line arguments.
-    */
+     * The main method.
+     *
+     * @param args The command-line arguments.
+     */
     public static void main(String[] args) {
 
         // Create a new array.
