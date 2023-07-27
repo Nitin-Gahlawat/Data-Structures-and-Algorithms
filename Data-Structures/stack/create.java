@@ -3,9 +3,9 @@
  */
 class stack {
     // This is the total size of the stack;
-    int size;
+    int size = 0;
     // This is the value of the top pointer of the stack
-    int top;
+    int top = 0;
     // stack implemented using array
     int[] stack_pointer;
 
@@ -17,6 +17,7 @@ class stack {
     stack(int size) {
         this.size = size;
         this.stack_pointer = new int[this.size];
+        this.top = 0;
     }
 
     /**
@@ -46,6 +47,10 @@ class stack {
      *
      */
     void pop() {
+        if (this.top == 0) {
+            System.err.println("Stack is empty.");
+            return;
+        }
         stack_pointer[this.top - 1] = 0;
         this.top--;
     }
@@ -66,9 +71,13 @@ public class create {
         st.push(1);
         st.push(182);
         st.push(162);
-        System.out.println(st.top());
-        st.pop();
-        System.out.println(st.top());
+        for (int i = 0; i < st.top(); i++) {
+            st.pop(); // poping out all the element expect the last element
+        }
+        System.out.println(st.top()); // printing the last element
+        st.pop(); // poping out the last element
 
+        // This statement will print 'Stack is empty'
+        st.pop();
     }
 }
