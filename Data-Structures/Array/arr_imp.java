@@ -20,8 +20,33 @@ class array {
      *
      * @param len the initial length of the array
      */
+    private void increase_size() {
+        this.length = this.length * 2;
+        int new_arr[] = new int[this.length];
+        for (int i = 0; i < this.length / 2; i++) {
+            new_arr[i] = arr[i];
+        }
+        arr = new_arr;
+    }
+
+    /**
+     * Initializes a new instance of the array class with the given length.
+     *
+     * @param len the initial length of the array
+     */
     array(int len) {
         this.length = len;
+        this.size = 0;
+        this.arr = new int[this.length];
+    }
+
+    /**
+     * Initializes a new instance of the array class with the given length.
+     *
+     */
+    array() {
+        // by default 10 size array is created.
+        this.length = 10;
         this.size = 0;
         this.arr = new int[this.length];
     }
@@ -41,6 +66,8 @@ class array {
      * @param element the element to be inserted
      */
     void insertlast(int element) {
+        if (this.size == this.length)
+            increase_size();
         arr[this.size] = element;
         this.size = this.size + 1;
     }
@@ -51,6 +78,8 @@ class array {
      * @param element the element to be inserted
      */
     void insertfirst(int element) {
+        if (this.size == this.length)
+            increase_size();
         if (this.size == 0)
             arr[this.size] = element;
         else {
@@ -68,6 +97,8 @@ class array {
      * @param pos     the position at which to insert the element
      */
     void insertposition(int element, int pos) {
+        if (this.size == this.length)
+            increase_size();
         if (pos > this.size) {
             System.err.println("Position given is far from the array size.");
             return;
@@ -121,14 +152,14 @@ class array {
 
 public class arr_imp {
     public static void main(String[] args) {
-        array obj = new array(75);
-        obj.insertlast(45);
-        obj.insertlast(415);
-        obj.insertfirst(120);
-        obj.insertlast(495);
+        // The initial length of the array is 4 but the length is can increase in case
+        // of more than 4 elements
+        array obj = new array();
         obj.insertfirst(220);
-        obj.insertposition(80, 0);
-        obj.before_ele(1000, 1200);
+        obj.insertlast(415);
+        obj.insertfirst(220);
+        obj.insertposition(80, 2);
+        obj.insertlast(45);
         obj.print();
     }
 }
