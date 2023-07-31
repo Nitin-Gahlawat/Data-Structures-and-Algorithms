@@ -29,15 +29,22 @@ class algorithm {
      * Method to sort the array using the bubble sort algorithm
      *
      */
-    void bubblesort() {
+    void bubblesort(boolean ascending) {
         int temp;
+        // Swap elements if they are in the wrong order
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length; j++) {
-                // Swap elements if they are in the wrong order
-                if (arr[i] < arr[j]) {
-                    temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                // for ascending order
+                if (ascending && arr[j] > arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+                // for descending order
+                else if (!ascending && arr[j] < arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
@@ -56,7 +63,7 @@ public class sorting {
         System.out.println("Elements before sorting:-");
 
         obj.print();
-        obj.bubblesort();
+        obj.bubblesort(false); // arrange the elements in the descending order
 
         System.out.println("Elements after sorting:-");
         obj.print();
