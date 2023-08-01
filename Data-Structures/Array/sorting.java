@@ -49,6 +49,23 @@ class algorithm {
             }
         }
     }
+    /**
+     * Method to sort the array using the bubble sort algorithm
+     * Default implemenation in case of no argument(s) is provided
+     */
+    void bubblesort() {
+        int temp;
+        // Swap elements if they are in the wrong order
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                // for ascending order
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
 }
 
 public class sorting {
