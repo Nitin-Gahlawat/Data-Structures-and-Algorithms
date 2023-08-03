@@ -1,16 +1,16 @@
 /**
- * Class representing an algorithm for sorting an array using the bubble sort
+ * Class representing an Algorithm for sorting an array using the bubble sort
  * technique
  *
  */
-class algorithm {
+class Algorithm {
     int arr[];
 
     /**
-     * Constructor to initialize the algorithm object with the input array
+     * Constructor to initialize the Algorithm object with the input array
      *
      */
-    algorithm(int[] arr) {
+    Algorithm(int[] arr) {
         this.arr = arr;
     }
 
@@ -26,10 +26,10 @@ class algorithm {
     }
 
     /**
-     * Method to sort the array using the bubble sort algorithm
+     * Method to sort the array using the bubble sort Algorithm
      *
      */
-    void bubblesort(boolean ascending) {
+    void sort(boolean ascending) {
         int temp;
         // Swap elements if they are in the wrong order
         for (int i = 0; i < arr.length; i++) {
@@ -50,10 +50,10 @@ class algorithm {
         }
     }
     /**
-     * Method to sort the array using the bubble sort algorithm
+     * Method to sort the array using the bubble sort Algorithm
      * Default implemenation in case of no argument(s) is provided
      */
-    void bubblesort() {
+    void sort() {
         int temp;
         // Swap elements if they are in the wrong order
         for (int i = 0; i < arr.length; i++) {
@@ -66,21 +66,22 @@ class algorithm {
                 }
             }
         }
+    }
 }
 
-public class sorting {
+public class Sorting {
     /**
      * Main Method
      *
      */
     public static void main(String[] args) {
         int[] arr = { 5, 8, 2, 3, 6 };
-        algorithm obj = new algorithm(arr);
+        Algorithm obj = new Algorithm(arr);
 
         System.out.println("Elements before sorting:-");
 
         obj.print();
-        obj.bubblesort(false); // arrange the elements in the descending order
+        obj.sort(false); // arrange the elements in the descending order
 
         System.out.println("Elements after sorting:-");
         obj.print();
