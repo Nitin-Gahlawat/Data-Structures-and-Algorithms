@@ -2,7 +2,7 @@ import java.util.Arrays ;
 /**
  * This class contain the implementation of searching algorithm.
  */
-class search{
+class Search{
     /**
      * Perform a linear search on a array
      *
@@ -39,11 +39,11 @@ class search{
     }
 }
 
-class iterative_search {
+class Iterative_search {
     public static void main(String[] args) {
         int[] arr={1,2,3,4,5,6,7,8,9};
         int ele=4;
-        search obj=new search();
+        Search obj=new Search();
         System.out.println(obj.linearsearch(arr,ele));
     }
 }
